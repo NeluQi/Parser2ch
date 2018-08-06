@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="panel" prefHeight="438.0" prefWidth="526.0" style="-fx-background-color: rgb(45, 45, 50);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLMainController">
+   <children>
+      <Pane onMouseDragged="#Move" onMousePressed="#MouseMove" prefHeight="39.0" prefWidth="526.0" style="-fx-background-color: ff881d;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutY="2.0" prefHeight="36.0" prefWidth="535.0" text="Парсер файлов с 2ch" textFill="WHITE">
+               <font>
+                  <Font name="Hannover Messe [RUS by Daymarius] Sans" size="25.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <ImageView fx:id="imgClose" fitHeight="23.0" fitWidth="27.0" layoutX="492.0" layoutY="10.0" onMouseClicked="#Close" onMouseExited="#MousePointingCloseNormal" onMouseMoved="#MousePointingClose" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@res/close.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="tbUrlTred" layoutX="181.0" layoutY="57.0" prefHeight="25.0" prefWidth="337.0" promptText="https://2ch.hk/X/res/XXXXXXXXX.html" />
+      <Text fill="WHITE" layoutX="20.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сылка на тред:">
+         <font>
+            <Font name="Hannover Messe [RUS by Daymarius] Sans" size="26.0" />
+         </font>
+      </Text>
+      <CheckBox fx:id="cbImages" layoutX="36.0" layoutY="197.0" mnemonicParsing="false" text="Картинки" textFill="WHITE">
+         <font>
+            <Font name="Hannover Messe [RUS by Daymarius] Sans" size="21.0" />
+         </font>
+      </CheckBox>
+      <Text fill="WHITE" layoutX="22.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Настройки">
+         <font>
+            <Font name="Hannover Messe [RUS by Daymarius] Sans" size="23.0" />
+         </font>
+      </Text>
+      <CheckBox fx:id="cbVideo" layoutX="36.0" layoutY="158.0" mnemonicParsing="false" selected="true" text="Видео" textFill="WHITE">
+         <font>
+            <Font name="Hannover Messe [RUS by Daymarius] Sans" size="21.0" />
+         </font>
+      </CheckBox>
+      <Text fill="WHITE" layoutX="32.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Что скачивать?">
+         <font>
+            <Font name="Hannover Messe [RUS by Daymarius] Sans" size="25.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cbSave" layoutX="174.0" layoutY="289.0" prefHeight="25.0" prefWidth="337.0" promptText="Видео и картинки в разные папки" />
+      <Text fill="WHITE" layoutX="18.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Как сохранять? ">
+         <font>
+            <Font name="Hannover Messe [RUS by Daymarius] Sans" size="25.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnDownload" layoutX="146.0" layoutY="358.0" mnemonicParsing="false" onMouseClicked="#DownLoad" prefHeight="55.0" prefWidth="243.0" text="Загрузить!">
+         <font>
+            <Font name="RetroComputer[RUS by Daymarius]" size="26.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tbNumMedia" layoutX="382.0" layoutY="160.0" prefHeight="25.0" prefWidth="129.0" promptText="Кол-во (0 - всё) " />
+      <Text fill="WHITE" layoutX="314.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сколько файлов скачать?">
+         <font>
+            <Font name="Hannover Messe [RUS by Daymarius] Sans" size="20.0" />
+         </font>
+      </Text>
+      <Pane fx:id="PanelDownload" layoutY="39.0" opacity="0.98" prefHeight="420.0" prefWidth="526.0" style="-fx-background-color: #2b1a2e;" visible="false">
+         <children>
+            <Text fx:id="LabelDownload" fill="WHITE" layoutX="113.0" layoutY="231.0" strokeWidth="0.0" text="1/1" textAlignment="CENTER" wrappingWidth="300.0">
+               <font>
+                  <Font name="RetroComputer[RUS by Daymarius]" size="49.0" />
+               </font>
+            </Text>
+            <Label alignment="TOP_CENTER" ellipsisString="0" graphicTextGap="0.0" layoutX="383.0" layoutY="352.0" prefHeight="54.0" prefWidth="129.0" text="Жди..." textAlignment="CENTER" textFill="#cfe3cb">
+               <font>
+                  <Font name="Hannover Messe [RUS by Daymarius] Sans" size="39.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnStopDownload" layoutX="400.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#btnStopDownload" prefHeight="29.0" prefWidth="95.0" text="ЗБС!" visible="false">
+               <font>
+                  <Font name="RetroComputer[RUS by Daymarius]" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
